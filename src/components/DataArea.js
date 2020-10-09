@@ -68,29 +68,30 @@ const DataArea = () => {
   };
 
   const handleSearchChange = event => {
+    console.log ("developerState", developerState.users)
     const filter = event.target.value;
     const filteredList = developerState.users.filter(item => {
       let values = item.name.first.toLowerCase() + " " + item.name.last.toLowerCase();
-      console.log(filter, values)
+      
     if(values.indexOf(filter.toLowerCase()) !== -1){
-      return item
+      
+       return item
     }
     else {return null} 
     });
-
+console.log("filteredList", filteredList)
     setDeveloperState({ ...developerState, filteredUsers: filteredList });
   };
-
+console.log ("developerState", developerState)
     useEffect(() => {
     API.getUsers().then(results => {
-      console.log(results.data.results);
+      
       setDeveloperState({
         ...developerState,
-        users: results.data.results,
-        filteredUsers: results.data.results
+        users: results.data.results,        
       });
     });
-  }, [developerState]);
+  }, []);
 
   return (
     <DataAreaContext.Provider
