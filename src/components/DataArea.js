@@ -51,10 +51,9 @@ const DataArea = () => {
         } else if (b[heading] === undefined) {
           return -1;
         }
-        // // numerically
-        
       }
     };
+    
     const sortedUsers = developerState.filteredUsers.sort(compareFnc);
     const updatedHeadings = developerState.headings.map(elem => {
       elem.order = elem.name === heading ? currentOrder : elem.order;
