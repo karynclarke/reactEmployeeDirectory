@@ -74,7 +74,8 @@ const DataArea = () => {
       console.log(filter, values)
     if(values.indexOf(filter.toLowerCase()) !== -1){
       return item
-    };
+    }
+    else {return null} 
     });
 
     setDeveloperState({ ...developerState, filteredUsers: filteredList });
@@ -89,7 +90,7 @@ const DataArea = () => {
         filteredUsers: results.data.results
       });
     });
-  }, []);
+  }, [developerState]);
 
   return (
     <DataAreaContext.Provider
